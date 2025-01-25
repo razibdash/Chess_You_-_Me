@@ -5,17 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chess you & me</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style>
+        .chessboard{
+            display: grid;
+            grid-template-columns: repeat(8,minmax(0,1fr));
+            grid-template-rows: repeat(8,minmax(0,1fr));
+            width: 400px;
+            height: 400px;
+            transform: rotate(0deg);
+        }
+        .piece.white{
+            color: white;
+            filter:drop-shadow(0 0 2px rgba(0,0,0,1))
+        }
+        .piece.black{
+            color: black;
+        }
+        .piece{
+            font-size: 36px;
+            cursor: pointer;
+        }
+        .piece.draggable{
+            cursor: grab;
+        }
+        .draggnig{
+            opacity: 0.5;
+        }
+        .flipped{
+            transform: rotate(180deg);
+        }
+        .square{
+            display: flex;
+            justify-content: center;
+            justify-items: center;
+        }
+        .square.light{
+            background-color: #f8d49a;
+        }
+        .square.dark{
+            background-color: #1caa9e;
+        }
+        .flipped.piece{
+            transform: rotate(180deg);
+        }
+    </style>
+   
    
 </head>
-<body>
+<body class="bg-stone-500">
     <div class="w-full flex justify-center items-center h-screen bg-zine-500">
-        <div class="w-96 h-96 bg-red-500"></div>
+        <div class="chessboard w-96 h-96 bg-red-500"></div>
     </div>
 
 
    
-    <script src="/js/chessgame.js"></script>
+   
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js" integrity="sha512-xRllwz2gdZciIB+AkEbeq+gVhX8VB8XsfqeFbUh+SzHlN96dEduwtTuVuc2u9EROlmW9+yhRlxjif66ORpsgVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.socket.io/4.8.1/socket.io.min.js" integrity="sha384-mkQ3/7FUtcGyoppY6bz/PORYoGqOl7/aSUMn2ymDOJcapfS6PHqxhRTMh1RR0Q6+" crossorigin="anonymous"></script>
+    <script src="/js/chessgame.js"></script>
 </body>
 </html>
