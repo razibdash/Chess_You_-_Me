@@ -1,6 +1,3 @@
+import { Chess } from "chess.js";
 const socket = io();
-socket.emit('hi','hello rajib');
-
-socket.on('hello',(data)=>{
-    console.log(data);
-})
+const chess=new Chess();
